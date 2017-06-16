@@ -1,0 +1,4763 @@
+{
+  "description": "PS v2.1",
+  "initialNode": "WELCOME_MESSAGE_1",
+  "persistentMenu": "PERSISTENT_MENU",
+  "getStarted": "GET_STARTED",
+  "greetingText": "GREETING_TEXT",
+  "keywords": {
+    "HOME": [
+      "home"
+    ],
+    "SUBS " :[
+      "subs"
+    ],
+    "HEALTH_TIPS" : [
+      "Health tip",
+      "health tips"
+    ],
+    "GENERAL_TIP_1" : [
+      "gtip"
+    ],
+    "SPECIFIC_TIP_1" : [
+      "stip"
+    ],
+    "ABOUT" : [
+      "about"
+    ],
+    "CONS" : [
+      "cons"
+    ]
+  },
+  "nodes": {
+    "GET_STARTED": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": ""
+            }
+          },
+          "actions": [
+            {
+              "type": "button",
+              "label": "Get Started",
+              "nextNodes": [
+                "WELCOME_MESSAGE_1"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "WELCOME_MESSAGE_1": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Hi {{profile.firstName}}! Welcome to Pink Shastra."
+            },
+            "nextNodes": [
+              "WELCOME_IMAGE"
+            ]
+          }
+        }
+      ],
+      "description": "Initial Welcome Node"
+    },
+    "WELCOME_IMAGE": {
+      "type": "basic",
+      "messages": [{
+        "data": {
+          "type": "image",
+          "value": {
+            "url": "http://www.pinkshastra.com/assets/site/images/slide-img1.jpg",
+            "title": "Natural Medicine Chatbot.",
+            "subtitle": "Pink Shastra - India's First Natural Medicine Chatbot."
+          },
+          "nextNodes": [
+            "WELCOME_MESSAGE_2"
+          ]
+        }
+      }]
+    },
+    "WELCOME_MESSAGE_2": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "How would you like Pink Shastra to help you today?"
+            },
+            "nextNodes": [
+              "HOME"
+            ]
+          }
+        }
+      ],
+      "description": "Initial Welcome Node"
+    },
+    "GREETING_TEXT": {
+      "type": "greeting",
+      "greetings": [
+        {
+          "locale": "default",
+          "greetingText": "Hi {{user_first_name}}!"
+        },
+        {
+          "locale": "cb_IQ",
+          "greetingText": "Hi {{user_first_name}}!"
+        }
+      ]
+    },
+    "PERSISTENT_MENU": {
+      "type": "persistent",
+      "messages": [
+        {
+          "actions": [
+            {
+              "type": "button",
+              "label": "😀 Home 😏",
+              "nextNodes": [
+                "HOME"
+              ]
+            },
+            {
+              "type": "button",
+              "label": "Start Consultation",
+              "nextNodes": [
+                "DISCLAIMER_CONS"
+              ]
+            },
+            {
+              "type": "button",
+              "label": "Buy Medicine",
+              "nextNodes": [
+                "DISCLAIMER_BUY"
+              ]
+            },
+            {
+              "type": "button",
+              "label": "Powered by Botworx",
+              "nextNodes": [
+                "POWER_BOTWORX"
+              ]
+            },
+            {
+              "type": "button",
+              "label": "Manage Subscription",
+              "nextNodes": [
+                "SUBS"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "POWER_BOTWORX": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "gallery",
+            "value": {
+              "items": [
+                {
+                  "type": "image",
+                  "value": {
+                    "title": "Hi {{profile.firstName}} 🤖 !",
+                    "url": "https://res.cloudinary.com/crunchbase-production/image/upload/v1486698067/vimya2qvcm8atsakojr8.png",
+                    "click_url": "http://cheddar.chat/articles/nvidia.html",
+                    "subtitle": "Check out Botwox"
+                  },
+                  "actions": [
+                    {
+                      "type": "button",
+                      "label": "Visit website",
+                      "url": "http://www.botworx.ai/"
+                    },
+                    {
+                      "type": "button",
+                      "label": "Botworx 🙂",
+                      "url": "https://www.messenger.com/t/Botworx"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "onEntryPlugins": []
+    },
+    "HOME" : {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "gallery",
+            "value": {
+              "items": [
+                {
+                  "type": "image",
+                  "value": {
+                    "title": "Ask a Health Question",
+                    "url": "http://images.onlymyhealth.com/imported/images/2017/February/09_Feb_2017/running650x325.jpg"
+                  },
+                  "actions": [
+                    {
+                      "type": "button",
+                      "label": "HEALTH INFORMATION",
+                      "nextNodes": [
+                        "HEALTH_TIPS"
+                      ]
+                    },
+                    {
+                      "type": "button",
+                      "label": "READ FAQS",
+                      "nextNodes": [
+                        "FAQ_1"
+                      ]
+                    },
+                    {
+                      "type": "button",
+                      "label": "ASK ANYTHING",
+                      "nextNodes": [
+                        "ASK_ANYTHING"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "image",
+                  "value": {
+                    "title": "Start consultation -Let our Experts Help you.",
+                    "url": "http://2.bp.blogspot.com/-7UKXf9u9b7I/VTSfJwguTaI/AAAAAAAACH4/0npQlJvmhzA/s1600/Medical%2BConsultant.png"
+                  },
+                  "actions": [
+                    {
+                      "type": "button",
+                      "label": "VIEW EXPERT PANEL",
+                      "nextNodes": [
+                        "ABOUT"
+                      ]
+                    },
+                    {
+                      "type": "button",
+                      "label": "TELE CONSULTATION",
+                      "nextNodes":[
+                        "DISCLAIMER_TELE_CONS"
+                      ]
+                    },
+                    {
+                      "type": "button",
+                      "label": "ONLINE CONSULTATION",
+                      "nextNodes": [
+                        "DISCLAIMER_ONLINE_CONS"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "image",
+                  "value": {
+                    "title": "Buy Medicine -Buy Homoeopathic and Ayurvedic Medicines Online at Discounted Rates",
+                    "url": "http://www.pinkshastra.com/assets/uploads/product/98/800X800.jpg"
+                  },
+                  "actions": [
+                    {
+                      "type": "button",
+                      "label": "AYURVEDIC MEDICINE ",
+                      "nextNodes":[
+                        "DISCLAIMER_BUY_AYUR"
+                      ]
+                    },
+                    {
+                      "type": "button",
+                      "label": "HOMEOPATHIC MEDICINE ",
+                      "nextNodes": [
+                        "DISCLAIMER_BUY_HOMEO"
+                      ]
+                    },
+                    {
+                      "type": "button",
+                      "label": "WELLNESS",
+                      "nextNodes": [
+                        "DISCLAIMER_BUY_WELL"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "HOME_2" : {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "gallery",
+            "value": {
+              "items": [
+                {
+                  "type": "image",
+                  "value": {
+                    "title": "Start consultation -Let our Experts Help you.",
+                    "url": "http://2.bp.blogspot.com/-7UKXf9u9b7I/VTSfJwguTaI/AAAAAAAACH4/0npQlJvmhzA/s1600/Medical%2BConsultant.png"
+                  },
+                  "actions": [
+                    {
+                      "type": "button",
+                      "label": "VIEW EXPERT PANEL",
+                      "nextNodes": [
+                        "ABOUT"
+                      ]
+                    },
+                    {
+                      "type": "button",
+                      "label": "TELE CONSULTATION",
+                      "nextNodes":[
+                        "DISCLAIMER_TELE_CONS"
+                      ]
+                    },
+                    {
+                      "type": "button",
+                      "label": "ONLINE CONSULTATION",
+                      "nextNodes": [
+                        "DISCLAIMER_ONLINE_CONS"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "image",
+                  "value": {
+                    "title": "Buy Medicine -Buy Homoeopathic and Ayurvedic Medicines Online at Discounted Rates",
+                    "url": "http://www.pinkshastra.com/assets/uploads/product/98/800X800.jpg"
+                  },
+                  "actions": [
+                    {
+                      "type": "button",
+                      "label": "AYURVEDIC MEDICINE ",
+                      "nextNodes":[
+                        "DISCLAIMER_BUY_AYUR"
+                      ]
+                    },
+                    {
+                      "type": "button",
+                      "label": "HOMEOPATHIC MEDICINE ",
+                      "nextNodes": [
+                        "DISCLAIMER_BUY_HOMEO"
+                      ]
+                    },
+                    {
+                      "type": "button",
+                      "label": "WELLNESS",
+                      "nextNodes": [
+                        "DISCLAIMER_BUY_WELL"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "image",
+                  "value": {
+                    "title": "Ask a Health Question",
+                    "url": "http://images.onlymyhealth.com/imported/images/2017/February/09_Feb_2017/running650x325.jpg"
+                  },
+                  "actions": [
+                    {
+                      "type": "button",
+                      "label": "HEALTH INFORMATION",
+                      "nextNodes": [
+                        "HEALTH_TIPS"
+                      ]
+                    },
+                    {
+                      "type": "button",
+                      "label": "READ FAQS",
+                      "nextNodes": [
+                        "FAQ_1"
+                      ]
+                    },
+                    {
+                      "type": "button",
+                      "label": "ASK ANYTHING",
+                      "nextNodes": [
+                        "ASK_ANYTHING"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "HOME_3" : {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "gallery",
+            "value": {
+              "items": [
+                {
+                  "type": "image",
+                  "value": {
+                    "title": "Buy Medicine -Buy Homoeopathic and Ayurvedic Medicines Online at Discounted Rates",
+                    "url": "http://www.pinkshastra.com/assets/uploads/product/98/800X800.jpg"
+                  },
+                  "actions": [
+                    {
+                      "type": "button",
+                      "label": "AYURVEDIC MEDICINE ",
+                      "nextNodes":[
+                        "DISCLAIMER_BUY_AYUR"
+                      ]
+                    },
+                    {
+                      "type": "button",
+                      "label": "HOMEOPATHIC MEDICINE ",
+                      "nextNodes": [
+                        "DISCLAIMER_BUY_HOMEO"
+                      ]
+                    },
+                    {
+                      "type": "button",
+                      "label": "WELLNESS",
+                      "nextNodes": [
+                        "DISCLAIMER_BUY_WELL"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "image",
+                  "value": {
+                    "title": "Ask a Health Question",
+                    "url": "http://images.onlymyhealth.com/imported/images/2017/February/09_Feb_2017/running650x325.jpg"
+                  },
+                  "actions": [
+                    {
+                      "type": "button",
+                      "label": "HEALTH INFORMATION",
+                      "nextNodes": [
+                        "HEALTH_TIPS"
+                      ]
+                    },
+                    {
+                      "type": "button",
+                      "label": "READ FAQS",
+                      "nextNodes": [
+                        "FAQ_1"
+                      ]
+                    },
+                    {
+                      "type": "button",
+                      "label": "ASK ANYTHING",
+                      "nextNodes": [
+                        "ASK_ANYTHING"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "image",
+                  "value": {
+                    "title": "Start consultation -Let our Experts Help you.",
+                    "url": "http://2.bp.blogspot.com/-7UKXf9u9b7I/VTSfJwguTaI/AAAAAAAACH4/0npQlJvmhzA/s1600/Medical%2BConsultant.png"
+                  },
+                  "actions": [
+                    {
+                      "type": "button",
+                      "label": "VIEW EXPERT PANEL",
+                      "nextNodes": [
+                        "ABOUT"
+                      ]
+                    },
+                    {
+                      "type": "button",
+                      "label": "TELE CONSULTATION",
+                      "nextNodes":[
+                        "DISCLAIMER_TELE_CONS"
+                      ]
+                    },
+                    {
+                      "type": "button",
+                      "label": "ONLINE CONSULTATION",
+                      "nextNodes": [
+                        "DISCLAIMER_ONLINE_CONS"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "ASK_ANYTHING": {
+      "type": "input",
+      "label": "Email",
+      "nextNodes": [
+        "ASK_ANYTHING_1"
+      ],
+      "messages": [{
+        "data": {
+          "type": "text",
+          "value": {
+            "title": "Please Enter your Email-ID to continue.."
+          }
+        }
+      }]
+    },
+    "ASK_ANYTHING_1": {
+      "type": "input",
+      "label": "Email",
+      "nextNodes": [
+        "ASK_ANYTHING_SUBMIT"
+      ],
+      "messages": [{
+        "data": {
+          "type": "text",
+          "value": {
+            "title": "Enter your Question.."
+          }
+        }
+      }]
+    },
+    "ASK_ANYTHING_SUBMIT": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Submit?"
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": "Yes",
+              "nextNodes": [
+                "SUBMIT_YES_ASK_ANYTHING"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "No",
+              "nextNodes": [
+                "SUBMIT_NO_ASK_ANYTHING"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "SUBMIT_YES_ASK_ANYTHING": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Your Query has been forwarded to our Experts. Our team will contact you shortly."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": "Home",
+              "nextNodes": [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "SUBMIT_NO_ASK_ANYTHING": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Your Query has been discarded."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": "Home",
+              "nextNodes": [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "HEALTH_TIPS": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "What type of tips you want to read?"
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": "General Tips",
+              "nextNodes": [
+                "GENERAL_TIP_1"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Specific Tips",
+              "nextNodes": [
+                "SPECIFIC_TIPS"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "GENERAL_TIP_1": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Garlic has been used as a strong detox food since ancient times, and it remains popular even today."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": "Subscribe Us!",
+              "nextNodes": [
+                "SUBS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Next Tip",
+              "nextNodes": [
+                "GENERAL_TIP_2"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Consult Now",
+              "nextNodes" : [
+                "DISCLAIMER_CONS"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Home",
+              "nextNodes" : [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "GENERAL_TIP_2": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Sitting on the floor in a cross-legged position and eating your food is good for your digestive system."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": "Subscribe Us!",
+              "nextNodes": [
+                "SUBS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Next Tip",
+              "nextNodes": [
+                "GENERAL_TIP_3"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Consult Now",
+              "nextNodes" : [
+                "DISCLAIMER_CONS"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Home",
+              "nextNodes" : [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "GENERAL_TIP_3": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "By eating lentils, you can encourage regular bowel movements, prevent constipation and reduce the risk of colon cancer."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": "Subscribe Us!",
+              "nextNodes": [
+                "SUBS"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Consult Now",
+              "nextNodes" : [
+                "DISCLAIMER_CONS"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Home",
+              "nextNodes" : [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "SPECIFIC_TIPS" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Please Select your Category..."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": [
+                "Skin Care"
+              ],
+              "nextNodes": [
+                "SKIN_CARE_TIP_1"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Obesity"
+              ],
+              "nextNodes": [
+                "OBESITY_TIP_1"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Men's Health"
+              ],
+              "nextNodes": [
+                "MENS_TIP_1"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Women's Health"
+              ],
+              "nextNodes": [
+                "WOMENS_TIP_1"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Digestion"
+              ],
+              "nextNodes": [
+                "DIGESTION_TIP_1"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Joint Pain"
+              ],
+              "nextNodes": [
+                "JOINT_PAIN_TIP_1"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Stress and Anxiety"
+              ],
+              "nextNodes": [
+                "STRESS_ANXIETY_TIP_1"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Breathing"
+              ],
+              "nextNodes": [
+                "BREATHING_TIP_1"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Hair Fall"
+              ],
+              "nextNodes": [
+                "HAIR_FALL_TIP_1"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Home"
+              ],
+              "nextNodes": [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "SKIN_CARE_TIP_1": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Lemon is one of the best ingredients that you can use to promote clear skin."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": "Next Tip",
+              "nextNodes": [
+                "SKIN_CARE_TIP_2"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Consult Now",
+              "nextNodes" : [
+                "DISCLAIMER_CONS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Subscribe Us!",
+              "nextNodes": [
+                "SUBS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Back",
+              "nextNodes": [
+                "SPECIFIC_TIPS"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Home",
+              "nextNodes" : [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "SKIN_CARE_TIP_2": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Turmeric is an excellent antiseptic and skin-lightening agent that helps minimize scars and other marks."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": "Previous Tip",
+              "nextNodes": [
+                "SKIN_CARE_TIP_1"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Next Tip",
+              "nextNodes": [
+                "SKIN_CARE_TIP_3"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Consult Now",
+              "nextNodes" : [
+                "DISCLAIMER_CONS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Subscribe Us!",
+              "nextNodes": [
+                "SUBS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Back",
+              "nextNodes": [
+                "SPECIFIC_TIPS"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Home",
+              "nextNodes" : [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "SKIN_CARE_TIP_3": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Baking soda balances pH levels of the skin, which is very important to maintain clear skin."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": "Previous Tip",
+              "nextNodes": [
+                "SKIN_CARE_TIP_2"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Consult Now",
+              "nextNodes" : [
+                "DISCLAIMER_CONS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Subscribe Us!",
+              "nextNodes": [
+                "SUBS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Back",
+              "nextNodes": [
+                "SPECIFIC_TIPS"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Home",
+              "nextNodes" : [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "OBESITY_TIP_1": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Lemon juice is one of the best home remedies for fighting obesity."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": "Next Tip",
+              "nextNodes": [
+                "OBESITY_TIP_2"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Consult Now",
+              "nextNodes" : [
+                "DISCLAIMER_CONS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Subscribe Us!",
+              "nextNodes": [
+                "SUBS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Back",
+              "nextNodes": [
+                "SPECIFIC_TIPS"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Home",
+              "nextNodes" : [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "OBESITY_TIP_2": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Raw, unfiltered apple cider vinegar is another popular home remedy to reduce excess weight."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": "Previous Tip",
+              "nextNodes": [
+                "OBESITY_TIP_1"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Next Tip",
+              "nextNodes": [
+                "OBESITY_TIP_3"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Consult Now",
+              "nextNodes" : [
+                "DISCLAIMER_CONS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Subscribe Us!",
+              "nextNodes": [
+                "SUBS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Back",
+              "nextNodes": [
+                "SPECIFIC_TIPS"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Home",
+              "nextNodes" : [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "OBESITY_TIP_3": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Make raw or boiled cabbage an integral part of your weight loss diet."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": "Previous Tip",
+              "nextNodes": [
+                "OBESITY_TIP_2"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Consult Now",
+              "nextNodes" : [
+                "DISCLAIMER_CONS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Subscribe Us!",
+              "nextNodes": [
+                "SUBS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Back",
+              "nextNodes": [
+                "SPECIFIC_TIPS"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Home",
+              "nextNodes" : [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "MENS_TIP_1": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Garlic is believed to help deal with erectile dysfunction as it contains allicin which helps improve blood flow."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": "Next Tip",
+              "nextNodes": [
+                "MENS_TIP_2"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Consult Now",
+              "nextNodes" : [
+                "DISCLAIMER_CONS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Subscribe Us!",
+              "nextNodes": [
+                "SUBS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Back",
+              "nextNodes": [
+                "SPECIFIC_TIPS"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Home",
+              "nextNodes" : [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "MENS_TIP_2": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Onions also contain aphrodisiac qualities. Plus, they help treat involuntary loss of semen during sleep or other times."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": "Previous Tip",
+              "nextNodes": [
+                "MENS_TIP_1"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Next Tip",
+              "nextNodes": [
+                "MENS_TIP_3"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Consult Now",
+              "nextNodes" : [
+                "DISCLAIMER_CONS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Subscribe Us!",
+              "nextNodes": [
+                "SUBS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Back",
+              "nextNodes": [
+                "SPECIFIC_TIPS"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Home",
+              "nextNodes" : [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "MENS_TIP_3": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "High stress is also associated with low testosterone levels."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": "Previous Tip",
+              "nextNodes": [
+                "MENS_TIP_2"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Consult Now",
+              "nextNodes" : [
+                "DISCLAIMER_CONS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Subscribe Us!",
+              "nextNodes": [
+                "SUBS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Back",
+              "nextNodes": [
+                "SPECIFIC_TIPS"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Home",
+              "nextNodes" : [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "WOMENS_TIP_1": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Fennel seeds can also stimulate breast growth in regards to dimension."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": "Next Tip",
+              "nextNodes": [
+                "WOMENS_TIP_2"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Consult Now",
+              "nextNodes" : [
+                "DISCLAIMER_CONS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Subscribe Us!",
+              "nextNodes": [
+                "SUBS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Back",
+              "nextNodes": [
+                "SPECIFIC_TIPS"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Home",
+              "nextNodes" : [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "WOMENS_TIP_2": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Apple cider vinegar is considered beneficial for treating leukorrhea."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": "Previous Tip",
+              "nextNodes": [
+                "WOMENS_TIP_1"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Next Tip",
+              "nextNodes": [
+                "WOMENS_TIP_3"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Consult Now",
+              "nextNodes" : [
+                "DISCLAIMER_CONS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Subscribe Us!",
+              "nextNodes": [
+                "SUBS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Back",
+              "nextNodes": [
+                "SPECIFIC_TIPS"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Home",
+              "nextNodes" : [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "WOMENS_TIP_3": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Jaggery helps regulate menstrual cycles due to its warming effects."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": "Previous Tip",
+              "nextNodes": [
+                "WOMENS_TIP_2"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Consult Now",
+              "nextNodes" : [
+                "DISCLAIMER_CONS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Subscribe Us!",
+              "nextNodes": [
+                "SUBS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Back",
+              "nextNodes": [
+                "SPECIFIC_TIPS"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Home",
+              "nextNodes" : [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "DIGESTION_TIP_1": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Buttermilk contains lactic acid that normalizes the acidity in the stomach."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": "Next Tip",
+              "nextNodes": [
+                "DIGESTION_TIP_2"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Consult Now",
+              "nextNodes" : [
+                "DISCLAIMER_CONS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Subscribe Us!",
+              "nextNodes": [
+                "SUBS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Back",
+              "nextNodes": [
+                "SPECIFIC_TIPS"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Home",
+              "nextNodes" : [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "DIGESTION_TIP_2": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Honey is highly beneficial in relieving constipation as it acts as a mild laxative."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": "Previous Tip",
+              "nextNodes": [
+                "DIGESTION_TIP_1"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Next Tip",
+              "nextNodes": [
+                "DIGESTION_TIP_3"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Consult Now",
+              "nextNodes" : [
+                "DISCLAIMER_CONS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Subscribe Us!",
+              "nextNodes": [
+                "SUBS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Back",
+              "nextNodes": [
+                "SPECIFIC_TIPS"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Home",
+              "nextNodes" : [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "DIGESTION_TIP_3": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Though acidic in nature,apple cider vinegar has an alkalizing effect.thus,it helps treat stomach acidity."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": "Previous Tip",
+              "nextNodes": [
+                "DIGESTION_TIP_2"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Consult Now",
+              "nextNodes" : [
+                "DISCLAIMER_CONS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Subscribe Us!",
+              "nextNodes": [
+                "SUBS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Back",
+              "nextNodes": [
+                "SPECIFIC_TIPS"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Home",
+              "nextNodes" : [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "JOINT_PAIN_TIP_1": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Ginger is an effective remedy to alleviate the Knee pain."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": "Next Tip",
+              "nextNodes": [
+                "JOINT_PAIN_TIP_2"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Consult Now",
+              "nextNodes" : [
+                "DISCLAIMER_CONS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Subscribe Us!",
+              "nextNodes": [
+                "SUBS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Back",
+              "nextNodes": [
+                "SPECIFIC_TIPS"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Home",
+              "nextNodes" : [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "JOINT_PAIN_TIP_2": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Basil leaves can also come to your rescue when suffering from a backache."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": "Previous Tip",
+              "nextNodes": [
+                "JOINT_PAIN_TIP_1"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Next Tip",
+              "nextNodes": [
+                "JOINT_PAIN_TIP_3"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Consult Now",
+              "nextNodes" : [
+                "DISCLAIMER_CONS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Subscribe Us!",
+              "nextNodes": [
+                "SUBS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Back",
+              "nextNodes": [
+                "SPECIFIC_TIPS"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Home",
+              "nextNodes" : [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "JOINT_PAIN_TIP_3": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Epsom salt can effectively ease muscular aches and pains."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": "Previous Tip",
+              "nextNodes": [
+                "JOINT_PAIN_TIP_2"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Consult Now",
+              "nextNodes" : [
+                "DISCLAIMER_CONS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Subscribe Us!",
+              "nextNodes": [
+                "SUBS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Back",
+              "nextNodes": [
+                "SPECIFIC_TIPS"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Home",
+              "nextNodes" : [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "STRESS_ANXIETY_TIP_1": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Lavender induces relaxation and relieves depression."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": "Next Tip",
+              "nextNodes": [
+                "STRESS_ANXIETY_TIP_2"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Consult Now",
+              "nextNodes" : [
+                "DISCLAIMER_CONS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Subscribe Us!",
+              "nextNodes": [
+                "SUBS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Back",
+              "nextNodes": [
+                "SPECIFIC_TIPS"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Home",
+              "nextNodes" : [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "STRESS_ANXIETY_TIP_2": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Rosemary is another popular home remedy for anxiety due to its calming effect."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": "Previous Tip",
+              "nextNodes": [
+                "STRESS_ANXIETY_TIP_1"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Next Tip",
+              "nextNodes": [
+                "STRESS_ANXIETY_TIP_3"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Consult Now",
+              "nextNodes" : [
+                "DISCLAIMER_CONS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Subscribe Us!",
+              "nextNodes": [
+                "SUBS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Back",
+              "nextNodes": [
+                "SPECIFIC_TIPS"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Home",
+              "nextNodes" : [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "STRESS_ANXIETY_TIP_3": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Being rich in vitamin C, cashew nuts stimulate the nervous system."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": "Previous Tip",
+              "nextNodes": [
+                "STRESS_ANXIETY_TIP_2"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Consult Now",
+              "nextNodes" : [
+                "DISCLAIMER_CONS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Subscribe Us!",
+              "nextNodes": [
+                "SUBS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Back",
+              "nextNodes": [
+                "SPECIFIC_TIPS"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Home",
+              "nextNodes" : [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "BREATHING_TIP_1": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Breathing exercises can help improve breathing in people suffering from COPD."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": "Next Tip",
+              "nextNodes": [
+                "BREATHING_TIP_2"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Consult Now",
+              "nextNodes" : [
+                "DISCLAIMER_CONS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Subscribe Us!",
+              "nextNodes": [
+                "SUBS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Back",
+              "nextNodes": [
+                "SPECIFIC_TIPS"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Home",
+              "nextNodes" : [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "BREATHING_TIP_2": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Ginger is a well-known natural treatment for various ailments including asthma."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": "Previous Tip",
+              "nextNodes": [
+                "BREATHING_TIP_1"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Next Tip",
+              "nextNodes": [
+                "BREATHING_TIP_3"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Consult Now",
+              "nextNodes" : [
+                "DISCLAIMER_CONS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Subscribe Us!",
+              "nextNodes": [
+                "SUBS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Back",
+              "nextNodes": [
+                "SPECIFIC_TIPS"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Home",
+              "nextNodes" : [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "BREATHING_TIP_3": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "A cup of black coffee can also help cure shortness of breath."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": "Previous Tip",
+              "nextNodes": [
+                "BREATHING_TIP_2"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Consult Now",
+              "nextNodes" : [
+                "DISCLAIMER_CONS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Subscribe Us!",
+              "nextNodes": [
+                "SUBS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Back",
+              "nextNodes": [
+                "SPECIFIC_TIPS"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Home",
+              "nextNodes" : [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "HAIR_FALL_TIP_1": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Olive oil is very good for damaged hair."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": "Next Tip",
+              "nextNodes": [
+                "HAIR_FALL_TIP_2"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Consult Now",
+              "nextNodes" : [
+                "DISCLAIMER_CONS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Subscribe Us!",
+              "nextNodes": [
+                "SUBS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Back",
+              "nextNodes": [
+                "SPECIFIC_TIPS"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Home",
+              "nextNodes" : [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "HAIR_FALL_TIP_2": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Aloe vera is good for repairing damaged hair."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": "Previous Tip",
+              "nextNodes": [
+                "HAIR_FALL_TIP_1"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Next Tip",
+              "nextNodes": [
+                "HAIR_FALL_TIP_3"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Consult Now",
+              "nextNodes" : [
+                "DISCLAIMER_CONS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Subscribe Us!",
+              "nextNodes": [
+                "SUBS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Back",
+              "nextNodes": [
+                "SPECIFIC_TIPS"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Home",
+              "nextNodes" : [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "HAIR_FALL_TIP_3": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Coconut oil is packed full of nutrients that are good for your hair."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": "Previous Tip",
+              "nextNodes": [
+                "HAIR_FALL_TIP_2"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" : "Consult Now",
+              "nextNodes" : [
+                "DISCLAIMER_CONS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Subscribe Us!",
+              "nextNodes": [
+                "SUBS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Back",
+              "nextNodes": [
+                "SPECIFIC_TIPS"
+              ]
+            },
+            {
+              "type" : "quicktext",
+              "label" :"Home",
+              "nextNodes" : [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "SUBS" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Would you like to get regular health tips and timely advice from Pink Shastra?"
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": [
+                "YES"
+              ],
+              "nextNodes": [
+                "SUBS_YES"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "NO"
+              ],
+              "nextNodes": [
+                "SUBS_NO"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "SUBS_YES" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Please Select your Category..."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": [
+                "Hair"
+              ],
+              "nextNodes": [
+                "SUBS_YES_1"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Skin Care"
+              ],
+              "nextNodes": [
+                "SUBS_YES_1"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Weight"
+              ],
+              "nextNodes": [
+                "SUBS_YES_1"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Women's Health"
+              ],
+              "nextNodes": [
+                "SUBS_YES_1"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Men's Health"
+              ],
+              "nextNodes": [
+                "SUBS_YES_1"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Digestion"
+              ],
+              "nextNodes": [
+                "SUBS_YES_1"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Joint Pain"
+              ],
+              "nextNodes": [
+                "SUBS_YES_1"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Stress and Anxiety"
+              ],
+              "nextNodes": [
+                "SUBS_YES_1"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Breathing"
+              ],
+              "nextNodes": [
+                "SUBS_YES_1  "
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Home"
+              ],
+              "nextNodes": [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "SUBS_YES_1" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Pink shastra will regularly send you Tips, News, Articles, Videos, Pictures and Expert Advice on your health and well being. Sounds Cool!"
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": [
+                "Great"
+              ],
+              "nextNodes": [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "SUBS_NO" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Okay! But anytime you change your mind, you can subscribe by typing SUBS"
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": [
+                "Home"
+              ],
+              "nextNodes": [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "FAQ_1" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "How can I find a solution for my problem at Pink Shastra?"
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": [
+                "Read Answer"
+              ],
+              "nextNodes": [
+                "FAQ_ANS_1"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "FAQ_ANS_1" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "You may consult an expert in your chosen category, and also find a medicine by exploring the therapeutic classification of the medicines. Else one can search by typing name of the disease, symptom or product in the “search” option available on the homepage."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": [
+                "Next Que"
+              ],
+              "nextNodes": [
+                "FAQ_2"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Home"
+              ],
+              "nextNodes": [
+                "HOME"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Consult Now"
+              ],
+              "nextNodes": [
+                "DISCLAIMER_CONS"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "FAQ_2" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Do I need prescription from doctor to buy medicine at Pink Shastra?"
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": [
+                "Read Answer"
+              ],
+              "nextNodes": [
+                "FAQ_ANS_2"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "FAQ_ANS_2" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "No. Homeopathic medicines being OTC in nature can be bought without a prescription. However, it is always better to consult a physician and should not do self-medication."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": [
+                "Next Que"
+              ],
+              "nextNodes": [
+                "FAQ_3"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Home"
+              ],
+              "nextNodes": [
+                "HOME"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Consult Now"
+              ],
+              "nextNodes": [
+                "DISCLAIMER_CONS"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "FAQ_3" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Should I stop my current allopathic medicines?"
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": [
+                "Read Answer"
+              ],
+              "nextNodes": [
+                "FAQ_ANS_3"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "FAQ_ANS_3" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "No. If anyone is on long continued prescription allopathic or any other mode of treatment, then she should not stop her current medicine. However, one can use homeopathic medicine as an adjuvant to the current medicines."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": [
+                "Next Que"
+              ],
+              "nextNodes": [
+                "FAQ_4"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Home"
+              ],
+              "nextNodes": [
+                "HOME"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Consult Now"
+              ],
+              "nextNodes": [
+                "DISCLAIMER_CONS"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "FAQ_4" :
+    {
+
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Are there any side effects of natural medicine?"
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": [
+                "Read Answer"
+              ],
+              "nextNodes": [
+                "FAQ_ANS_4"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "FAQ_ANS_4" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Usually natural medicines do not have any side effects. But there are very rare possibilities of aggravation of the symptoms. If aggravation continues for longer period then one should stop the medicine and should immediately consult a physician."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": [
+                "Next Que"
+              ],
+              "nextNodes": [
+                "FAQ_5"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Home"
+              ],
+              "nextNodes": [
+                "HOME"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Consult Now"
+              ],
+              "nextNodes": [
+                "DISCLAIMER_CONS"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "FAQ_5" :
+    {
+
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "How should I take the Medicine? "
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": [
+                "Read Answer"
+              ],
+              "nextNodes": [
+                "FAQ_ANS_5"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "FAQ_ANS_5" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "As per the dose mentioned on the pack of that particular medicine, though the expert will also recommend the method."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": [
+                "Next Que"
+              ],
+              "nextNodes": [
+                "FAQ_6"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Home"
+              ],
+              "nextNodes": [
+                "HOME"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Consult Now"
+              ],
+              "nextNodes": [
+                "DISCLAIMER_CONS"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "FAQ_6" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Are there any Dietary Restrictions with Natural Medicines?"
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": [
+                "Read Answer"
+              ],
+              "nextNodes": [
+                "FAQ_ANS_6"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "FAQ_ANS_6" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "No. However it is recommended that there should not be any strong smell in mouth like of garlic, mint and onion etc. while taking medicines. Further, one should avoid eating anything 15 minutes before and after taking the medicine. If there is any such restriction, our expert will inform in advance."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": [
+                "Next Que"
+              ],
+              "nextNodes": [
+                "FAQ_7"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Home"
+              ],
+              "nextNodes": [
+                "HOME"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Consult Now"
+              ],
+              "nextNodes": [
+                "DISCLAIMER_CONS"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "FAQ_7" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "How much time it will take to cure my disease?"
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": [
+                "Read Answer"
+              ],
+              "nextNodes": [
+                "FAQ_ANS_7"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "FAQ_ANS_7" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "The time taken mainly depends upon the condition of the patient and severity of the disease. If the condition is not severe then it may improve in few days but if the condition is severe then it may take longer time."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": [
+                "Next Que"
+              ],
+              "nextNodes": [
+                "FAQ_8"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Home"
+              ],
+              "nextNodes": [
+                "HOME"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Consult Now"
+              ],
+              "nextNodes": [
+                "DISCLAIMER_CONS"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "FAQ_8" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Should I continue the Medicines indefinitely?"
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": [
+                "Read Answer"
+              ],
+              "nextNodes": [
+                "FAQ_ANS_8"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "FAQ_ANS_8" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "No. One must take the medicine for the duration advised by the expert. You can follow up with the expert after that for further advise."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": [
+                "Next Que"
+              ],
+              "nextNodes": [
+                "FAQ_9"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Home"
+              ],
+              "nextNodes": [
+                "HOME"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Consult Now"
+              ],
+              "nextNodes": [
+                "DISCLAIMER_CONS"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "FAQ_9" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "How I should store the Medicines?"
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": [
+                "Read Answer"
+              ],
+              "nextNodes": [
+                "FAQ_ANS_9"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "FAQ_ANS_9" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Store in a dry place at room temperature away from the sun and strong perfumes. Not in refrigerators."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": [
+                "Home"
+              ],
+              "nextNodes": [
+                "HOME"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Consult Now"
+              ],
+              "nextNodes": [
+                "DISCLAIMER_CONS"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "CONSULT_NOW_TEXT" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Which type of Consultation will you prefer?"
+            }
+          }
+        }
+      ]
+    },
+    "CONS" : {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Which type of Consultation will you prefer?"
+            },
+            "nextNodes": [
+              "CONSULT_NOW_GALLERY"
+            ]
+          }
+        }
+      ]
+    },
+    "CONSULT_NOW_GALLERY" : {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "gallery",
+            "value": {
+              "items": [
+                {
+                  "type": "image",
+                  "value": {
+                    "title": "Tele-Consultation",
+                    "url": "http://www.navigatecancerfoundation.org/userfiles/image/2377960_low.jpg"
+                  },
+                  "actions": [
+                    {
+                      "type": "button",
+                      "label": "TELE-CONSULTATION",
+                      "nextNodes": [
+                        "TELE_CONSULTATION"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "image",
+                  "value": {
+                    "title": "Online Consultation",
+                    "url": "http://www.prodentas.lt/file/manual/paslaugos/konsultacija%20internetu(1).jpg"
+                  },
+                  "actions": [
+                    {
+                      "type": "button",
+                      "label": "ONLINE CONSULTATION",
+                      "nextNodes": [
+                        "ONLINE_CONSULTATION"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "TELE_CONSULTATION" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Select the type of Treatment...."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": [
+                "Ayurveda"
+              ],
+              "nextNodes": [
+                "ASK_EMAIL"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Homoeopathy"
+              ],
+              "nextNodes": [
+                "ASK_EMAIL"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ONLINE_CONSULTATION" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Select the type of Treatment...."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": [
+                "Ayurveda"
+              ],
+              "nextNodes": [
+                "ASK_EMAIL"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Homoeopathy"
+              ],
+              "nextNodes": [
+                "ASK_EMAIL"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ASK_EMAIL_TELE_CONSULTATION": {
+      "type": "input",
+      "label": "EmailInput",
+      "nextNodes": [
+        "ASK_DATE_TELE_CONSULTATION"
+      ],
+      "messages": [{
+        "data": {
+          "type": "text",
+          "value": {
+            "title": "Enter your Email ID to continue.."
+          }
+        }
+      }]
+    },
+    "ASK_DATE_TELE_CONSULTATION": {
+      "type": "input",
+      "label": "EmailInput",
+      "nextNodes": [
+        "ASK_TIME_TELE_CONSULTATION"
+      ],
+      "messages": [{
+        "data": {
+          "type": "text",
+          "value": {
+            "title": "Enter the date of Consultation (format dd/mm/yyyy)"
+          }
+        }
+      }]
+    },
+    "ASK_TIME_TELE_CONSULTATION": {
+      "type": "input",
+      "label": "EmailInput",
+      "nextNodes": [
+        "ASK_USER"
+      ],
+      "messages": [{
+        "data": {
+          "type": "text",
+          "value": {
+            "title": "Enter the date of Consultation (from 9:00 AM to 6:00 PM)"
+          }
+        }
+      }]
+    },
+    "ASK_EMAIL_ONLINE_CONSULTATION": {
+      "type": "input",
+      "label": "EmailInput",
+      "nextNodes": [
+        "VAR_USER"
+      ],
+      "messages": [{
+        "data": {
+          "type": "text",
+          "value": {
+            "title": "Enter your Email ID to continue.."
+          }
+        }
+      }]
+    },
+    "ASK_USER" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "For whom you are looking Consultation for.."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": [
+                "Self"
+              ],
+              "nextNodes": [
+                "PATIENTS_INFO",
+                "ASK_AGE"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Other"
+              ],
+              "nextNodes": [
+                "OTHER_NAME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "PATIENTS_INFO" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Enter your Basic Info"
+            }
+          }
+        }
+      ]
+    },
+    "ASK_AGE": {
+      "type": "input",
+      "label": "EmailInput",
+      "nextNodes": [
+        "ASK_SEX"
+      ],
+      "messages": [{
+        "data": {
+          "type": "text",
+          "value": {
+            "title": "Enter your Age (in numbers)"
+          }
+        }
+      }]
+    },
+    "ASK_SEX" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Enter Sex.."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": [
+                "Male 👨"
+              ],
+              "nextNodes": [
+                "MALE_PROB"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Female 👩"
+              ],
+              "nextNodes": [
+                "FEMALE_PROB"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Other"
+              ],
+              "nextNodes": [
+                "OTHER_PROB"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "FEMALE_PROB" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Please Select your Problem.."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": [
+                "Weightloss/Obesity"
+              ],
+              "nextNodes": [
+                "DESCRIBE_PROB"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Hair"
+              ],
+              "nextNodes": [
+                "DESCRIBE_PROB"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Skin Care"
+              ],
+              "nextNodes": [
+                "DESCRIBE_PROB"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Digestion"
+              ],
+              "nextNodes": [
+                "DESCRIBE_PROB"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "More"
+              ],
+              "nextNodes": [
+                "MORE_FEMALE_PROB"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "MORE_FEMALE_PROB" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Here are some more Options.."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": [
+                "Joint Pain"
+              ],
+              "nextNodes": [
+                "DESCRIBE_PROB"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Breathing"
+              ],
+              "nextNodes": [
+                "DESCRIBE_PROB"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Women's Health"
+              ],
+              "nextNodes": [
+                "DESCRIBE_PROB"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Stress and Anxiety"
+              ],
+              "nextNodes": [
+                "DESCRIBE_PROB"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Others"
+              ],
+              "nextNodes": [
+                "DESCRIBE_PROB"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ASK_PREGNANCY" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Are you Pregnant?"
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": [
+                "Yes"
+              ],
+              "nextNodes": [
+                "ASK_MENSTRUAL_CYCLE"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "No"
+              ],
+              "nextNodes": [
+                "ASK_MENSTRUAL_CYCLE"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ASK_MENSTRUAL_CYCLE" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Menstrual Cycle?"
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": [
+                "Regualar"
+              ],
+              "nextNodes": [
+                "ASK_MENSTRUAL_FLOW"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Irregular"
+              ],
+              "nextNodes": [
+                "ASK_MENSTRUAL_FLOW"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ASK_MENSTRUAL_FLOW" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Menstrual Flow?"
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": [
+                "Normal"
+              ],
+              "nextNodes": [
+                "ALMOST_THERE_MSG"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Excessive"
+              ],
+              "nextNodes": [
+                "ALMOST_THERE_MSG"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Scanty"
+              ],
+              "nextNodes": [
+                "ALMOST_THERE_MSG"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ALMOST_THERE_MSG" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Almost There.."
+            }
+          }
+        }
+      ]
+    },
+    "ASK_MEDICAL_HISTORY_MSG" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Please provide your Medical History (if any)"
+            }
+          }
+        }
+      ]
+    },
+    "ASK_MEDICAL_HISTORY" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Select your Problem.."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": [
+                "Diabetic"
+              ],
+              "nextNodes": [
+                "DESCRIBE_MEDICAL_HISTORY"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Blood Pressure"
+              ],
+              "nextNodes": [
+                "DESCRIBE_MEDICAL_HISTORY"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Allergies"
+              ],
+              "nextNodes": [
+                "DESCRIBE_MEDICAL_HISTORY"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Others"
+              ],
+              "nextNodes": [
+                "DESCRIBE_MEDICAL_HISTORY"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Nothing"
+              ],
+              "nextNodes": [
+                "ASK_MOBILE_NUMBER"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "DESCRIBE_MEDICAL_HISTORY": {
+      "type": "input",
+      "label": "MedicalHistoryInput",
+      "nextNodes": [
+        "ASK_ANYTHING_ELSE"
+      ],
+      "messages": [{
+        "data": {
+          "type": "text",
+          "value": {
+            "title": "Please describe your Problem in brief(30-40 words).."
+          }
+        }
+      }]
+    },
+    "ASK_ANYTHING_ELSE" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Anything Else.."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": [
+                "Yes"
+              ],
+              "nextNodes": [
+                "ASK_MEDICAL_HISTORY"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "No"
+              ],
+              "nextNodes": [
+                "ASK_MOBILE_NUMBER"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+
+    "ASK_MOBILE_NUMBER": {
+      "type": "input",
+      "label": "MobileNoInput",
+      "nextNodes": [
+        "ASK_OTP"
+      ],
+      "messages": [{
+        "data": {
+          "type": "text",
+          "value": {
+            "title": "Please enter your Mobile No. for Verification.."
+          }
+        }
+      }]
+    },
+    "ASK_OTP": {
+      "type": "input",
+      "label": "OTPInput",
+      "nextNodes": [
+        "SUBMIT"
+      ],
+      "messages": [{
+        "data": {
+          "type": "text",
+          "value": {
+            "title": "Please enter the OTP sent to your Mobile No."
+          }
+        }
+      }]
+    },
+    "SUBMIT" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Submit.."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": [
+                "Yes"
+              ],
+              "nextNodes": [
+                "ASK_MEDICAL_HISTORY"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "No"
+              ],
+              "nextNodes": [
+                "ASK_MOBILE_NUMBER"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "DESCRIBE_PROB": {
+      "type": "input",
+      "label": "ProbInput",
+      "nextNodes": [
+        "ASK_PREGNANCY"
+      ],
+      "messages": [{
+        "data": {
+          "type": "text",
+          "value": {
+            "title": "Please Describe your Problem.."
+          }
+        }
+      }]
+    },
+    "ABOUT" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Team of Experts..."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": [
+                "Ayurveda"
+              ],
+              "nextNodes": [
+                "AYURVEDA_TEAM"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Homoeopathy"
+              ],
+              "nextNodes": [
+                "HOMEOPATHY_TEAM"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Back"
+              ],
+              "nextNodes": [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "AYURVEDA_TEAM" : {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "gallery",
+            "value": {
+              "items": [
+                {
+                  "type": "image",
+                  "value": {
+                    "title": "Dr. Sanjay Tyagi",
+                    "url": ""
+                  },
+                  "actions": [
+                    {
+                      "type": "button",
+                      "label": "VIEW",
+                      "nextNodes": [
+                        "DR_ST"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "image",
+                  "value": {
+                    "title": "Dr. Vivek Rathore",
+                    "url": ""
+                  },
+                  "actions": [
+                    {
+                      "type": "button",
+                      "label": "VIEW",
+                      "nextNodes": [
+                        "DR_VR"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "image",
+                  "value": {
+                    "title": "Dr. S.K.Sinha",
+                    "url": ""
+                  },
+                  "actions": [
+                    {
+                      "type": "button",
+                      "label": "VIEW",
+                      "nextNodes":[
+                        "DR_SKS"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "HOMEOPATHY_TEAM" : {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "gallery",
+            "value": {
+              "items": [
+                {
+                  "type": "image",
+                  "value": {
+                    "title": "Dr. Sumit Mukerji",
+                    "url": ""
+                  },
+                  "actions": [
+                    {
+                      "type": "button",
+                      "label": "VIEW",
+                      "nextNodes": [
+                        "DR_SM"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "image",
+                  "value": {
+                    "title": "Dr. Sangeeta Sahgal",
+                    "url": ""
+                  },
+                  "actions": [
+                    {
+                      "type": "button",
+                      "label": "VIEW",
+                      "nextNodes": [
+                        "DR_SS"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "image",
+                  "value": {
+                    "title": "Dr. Rashi Prakash",
+                    "url": ""
+                  },
+                  "actions": [
+                    {
+                      "type": "button",
+                      "label": "VIEW",
+                      "nextNodes":[
+                        "DR_RP"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "DR_ST" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Dr. Sanjay Tyagi has more than 26 years of experience. He is senior consultant (rheumatology) T.T.C.  He is specialist in Panchakarma, Keralite oil therapy and Naturopathy."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": [
+                "Consult Now"
+              ],
+              "nextNodes": [
+                "CONSULT_DR_ST"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Home"
+              ],
+              "nextNodes": [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "CONSULT_DR_ST" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Dear {{profile.firstName}},You are about to start free telephonic consultation with Dr. Sanjay Tyagi."
+            },
+            "nextNodes" : [
+              "TELE_CONSULTATION"
+            ]
+          }
+        }
+      ]
+    },
+    "DR_VR" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Dr. Vivek Rathore has more than 12 years of experience.Honoured with AIIMGA award in 2010. Presently at the post of general secretary of vishwa ayurveda parishad, Gzb. "
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": [
+                "Consult Now"
+              ],
+              "nextNodes": [
+                "CONSULT_DR_VR"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Home"
+              ],
+              "nextNodes": [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "CONSULT_DR_VR" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Dear {{profile.firstName}},you are about to start free telephonic consultation with Dr. Vivek Rathore."
+            },
+            "nextNodes" : [
+              "TELE_CONSULTATION"
+            ]
+          }
+        }
+      ]
+    },
+    "DR_RP" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Dr. Rashi Prakash is a homoeopath, currently working with different organizations as their homoeopathic physician. She has successfully treated several acute and chronic ailments."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": [
+                "Consult Now"
+              ],
+              "nextNodes": [
+                "CONSULT_DR_RP"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Home"
+              ],
+              "nextNodes": [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "CONSULT_DR_RP" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Dear {{profile.firstName}},You are about to start free telephonic consultation with Dr. Rashi Prakash."
+            },
+            "nextNodes" : [
+              "TELE_CONSULTATION"
+            ]
+          }
+        }
+      ]
+    },
+    "DR_SM" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Dr. Sumit Mukerji is a fourth generation homoeopath, practicing for last 26 years in Delhi and working as a senior consultant in reputed hospital in Delhi. He has a vast experience in homeopathic treatment of various ailments."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": [
+                "Consult Now"
+              ],
+              "nextNodes": [
+                "CONSULT_DR_SM"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Home"
+              ],
+              "nextNodes": [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "CONSULT_DR_SM" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Dear {{profile.firstName}},You are about to start free telephonic consultation with Dr. Sumit Mukerji."
+            },
+            "nextNodes" : [
+              "TELE_CONSULTATION"
+            ]
+          }
+        }
+      ]
+    },
+    "DR_SS" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Dr. Sangeeta started practicing homoeopathy under the tutelage of late Dr. Diwan Harish Chand, stalwart of homoeopathy. practicing since 25 years."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": [
+                "Consult Now"
+              ],
+              "nextNodes": [
+                "CONSULT_DR_SS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Home"
+              ],
+              "nextNodes": [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "CONSULT_DR_SS" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Dear {{profile.firstName}},You are about to start free telephonic consultation with Dr. Sangeeta Sahgal."
+            },
+            "nextNodes" : [
+              "TELE_CONSULTATION"
+            ]
+          }
+        }
+      ]
+    },
+    "DR_SKS" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Dr. S.K. Sinha is a B.A.M.S, N.D.D.Y. having 5 years of experience in various fields of ayurveda."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": [
+                "Consult Now"
+              ],
+              "nextNodes": [
+                "CONSULT_DR_SKS"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": [
+                "Home"
+              ],
+              "nextNodes": [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "CONSULT_DR_SKS" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Dear {{profile.firstName}},You are about to start free telephonic consultation with Dr. S.K. Sinha."
+            },
+            "nextNodes" : [
+              "TELE_CONSULTATION"
+            ]
+          }
+        }
+      ]
+    },
+    "DISCLAIMER_CONS" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Shall we Continue. By clicking yes, You agree the terms and conditions of Pink Shastra."
+            }
+          },
+          "actions": [
+            {
+              "type": "button",
+              "label": "VIEW",
+              "url": "http://www.pinkshastra.com/terms"
+            },
+            {
+              "type": "quicktext",
+              "label": "Yes",
+              "nextNodes": [
+                "CONSULT_NOW_TEXT",
+                "CONSULT_NOW_GALLERY"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "No",
+              "nextNodes": [
+                "DISCLAIMER_NOT_ACCEPT"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "DISCLAIMER_NOT_ACCEPT_CONS": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Sorry, You can't Proceed."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": "Accept",
+              "nextNodes": [
+                "CONSULT_NOW_TEXT",
+                "CONSULT_NOW_GALLERY"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Home",
+              "nextNodes": [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "DISCLAIMER_TELE_CONS" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Shall we Continue. By clicking yes, You agree the terms and conditions of Pink Shastra."
+            }
+          },
+          "actions": [
+            {
+              "type": "button",
+              "label": "VIEW",
+              "url": "http://www.pinkshastra.com/terms"
+            },
+            {
+              "type": "quicktext",
+              "label": "Yes",
+              "nextNodes": [
+                "TELE_CONSULTATION"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "No",
+              "nextNodes": [
+                "DISCLAIMER_NOT_ACCEPT_TELE_CONS"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "DISCLAIMER_NOT_ACCEPT_TELE_CONS": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Sorry, You can't Proceed."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": "Accept",
+              "nextNodes": [
+                "TELE_CONSULTATION"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Home",
+              "nextNodes": [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "DISCLAIMER_ONLINE_CONS" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Shall we Continue. By clicking yes, You agree the terms and conditions of Pink Shastra."
+            }
+          },
+          "actions": [
+            {
+              "type": "button",
+              "label": "VIEW",
+              "url": "http://www.pinkshastra.com/terms"
+            },
+            {
+              "type": "quicktext",
+              "label": "Yes",
+              "nextNodes": [
+                "ONLINE_CONSULTATION"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "No",
+              "nextNodes": [
+                "DISCLAIMER_NOT_ACCEPT_ONLINE_CONS"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "DISCLAIMER_NOT_ACCEPT_ONLINE_CONS": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Sorry, You can't Proceed."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": "Accept",
+              "nextNodes": [
+                "ONLINE_CONSULTATION"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Home",
+              "nextNodes": [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "DISCLAIMER_BUY" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Shall we Continue. By clicking yes, You agree the terms and conditions of Pink Shastra."
+            }
+          },
+          "actions": [
+            {
+              "type": "button",
+              "label": "VIEW",
+              "url": "http://www.pinkshastra.com/terms"
+            },
+            {
+              "type": "quicktext",
+              "label": "Yes",
+              "nextNodes": [
+                "BUY"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "No",
+              "nextNodes": [
+                "DISCLAIMER_NOT_ACCEPT_BUY"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "DISCLAIMER_NOT_ACCEPT_BUY": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Sorry, You can't Proceed."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": "Accept",
+              "nextNodes": [
+                "BUY"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Home",
+              "nextNodes": [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "DISCLAIMER_BUY_AYUR" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Shall we Continue. By clicking yes, You agree the terms and conditions of Pink Shastra."
+            }
+          },
+          "actions": [
+            {
+              "type": "button",
+              "label": "VIEW",
+              "url": "http://www.pinkshastra.com/terms"
+            },
+            {
+              "type": "quicktext",
+              "label": "Yes",
+              "nextNodes": [
+                "AYUR"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "No",
+              "nextNodes": [
+                "DISCLAIMER_NOT_ACCEPT_AYUR"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "DISCLAIMER_NOT_ACCEPT_AYUR": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Sorry, You can't Proceed."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": "Accept",
+              "nextNodes": [
+                "AYUR"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Home",
+              "nextNodes": [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "DISCLAIMER_BUY_HOMEO" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Shall we Continue. By clicking yes, You agree the terms and conditions of Pink Shastra."
+            }
+          },
+          "actions": [
+            {
+              "type": "button",
+              "label": "VIEW",
+              "url": "http://www.pinkshastra.com/terms"
+            },
+            {
+              "type": "quicktext",
+              "label": "Yes",
+              "nextNodes": [
+                "HOMEO"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "No",
+              "nextNodes": [
+                "DISCLAIMER_NOT_ACCEPT_HOMEO"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "DISCLAIMER_NOT_ACCEPT_HOMEO": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Sorry, You can't Proceed."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": "Accept",
+              "nextNodes": [
+                "HOMEO"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Home",
+              "nextNodes": [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "DISCLAIMER_BUY_SEARCH" :
+    {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Shall we Continue. By clicking yes, You agree the terms and conditions of Pink Shastra."
+            }
+          },
+          "actions": [
+            {
+              "type": "button",
+              "label": "VIEW",
+              "url": "http://www.pinkshastra.com/terms"
+            },
+            {
+              "type": "quicktext",
+              "label": "Yes",
+              "nextNodes": [
+                "BUY_SEARCH"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "No",
+              "nextNodes": [
+                "DISCLAIMER_NOT_ACCEPT_BUY_SEARCH"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "DISCLAIMER_NOT_ACCEPT_BUY_SEARCH": {
+      "type": "basic",
+      "messages": [
+        {
+          "data": {
+            "type": "text",
+            "value": {
+              "title": "Sorry, You can't Proceed."
+            }
+          },
+          "actions": [
+            {
+              "type": "quicktext",
+              "label": "Accept",
+              "nextNodes": [
+                "BUY_SEARCH"
+              ]
+            },
+            {
+              "type": "quicktext",
+              "label": "Home",
+              "nextNodes": [
+                "HOME"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
